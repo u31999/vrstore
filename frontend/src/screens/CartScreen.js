@@ -11,10 +11,14 @@ const CartScreen = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const dispatch = useDispatch()
+
   
   const cart = useSelector(state => state.cart)
   const { cartItems } = cart 
 
+  const userLogin = useSelector(state => state.userLogin)
+  const {userInfo} = userLogin
+   
   const productId = params.id
   const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
@@ -29,7 +33,11 @@ const CartScreen = () => {
   }
 
   const checkoutHandler = () => {
-    navigate('/login')
+    if(userInfo) {
+      navigate('/shipping')
+    } else {
+      navigate('/login')
+    }
   }
 
   return (

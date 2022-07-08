@@ -19,11 +19,11 @@ const LoginScreen = () => {
 
     const { loading, error, userInfo } = userLogin
 
-    const redirect = location.search ? location.search.split('=')[0] : '/'
-    
+      const redirect = location.search ? location.search.split('=')[1] : '/'
+
     useEffect(()=> {
         if(userInfo) {
-            navigate(redirect)
+                navigate('/shipping')
         }
     }, [navigate, redirect, userInfo])
 
@@ -63,7 +63,7 @@ const LoginScreen = () => {
         <Row className='py-3'>
             <Col>
                 New Customer?{' '}
-                <Link to={redirect && '/register'}>
+                <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                     Register
                 </Link>
             </Col>
