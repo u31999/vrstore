@@ -47,7 +47,7 @@ const LoginScreen = () => {
                 </Form.Control>
 
                 <Form.Group controlId='password'>
-                <Form.Label>Password Address</Form.Label>
+                <Form.Label>Password</Form.Label>
                 <Form.Control type='password' 
                 palceholder='Enter password'
                 value={password}
