@@ -23,7 +23,7 @@ const LoginScreen = () => {
 
     useEffect(()=> {
         if(userInfo) {
-                navigate('/shipping')
+                navigate('/')
         }
     }, [navigate, redirect, userInfo])
 
